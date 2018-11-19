@@ -12,6 +12,7 @@ import org.apache.http.util.EntityUtils;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import javafx.event.ActionEvent;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.control.TextField;
@@ -29,10 +30,9 @@ public class SampleController {
 	private Button signInBtn;
 
 	@FXML
-	void handleButtonAction(javafx.event.ActionEvent event) {
+	void handleButtonAction(ActionEvent event) {
 		try {
 			HttpClient client = HttpClients.createDefault();
-			System.out.println(accNumberInput.getText());
 			HttpGet get = new HttpGet(String.format("http://localhost:9998/rest/account/" + accNumberInput.getText()));
 			HttpResponse response = client.execute(get);
 			if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
@@ -40,7 +40,7 @@ public class SampleController {
 				Gson gson = new GsonBuilder().create();
 				Account account = gson.fromJson(accountNumber, Account.class);
 				System.out.println(account.getOwner());
-				//return resultData.getResult();
+				// return resultData.getResult();
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
