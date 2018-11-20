@@ -33,7 +33,7 @@ public class SampleController {
 	void handleButtonAction(ActionEvent event) {
 		try {
 			HttpClient client = HttpClients.createDefault();
-			HttpGet get = new HttpGet(String.format("http://localhost:9998/rest/account/" + accNumberInput.getText()));
+			HttpGet get = new HttpGet(String.format("http://localhost:9998/rest/account/" + accNumberInput.getText())); //
 			HttpResponse response = client.execute(get);
 			if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
 				String accountNumber = EntityUtils.toString(response.getEntity());
