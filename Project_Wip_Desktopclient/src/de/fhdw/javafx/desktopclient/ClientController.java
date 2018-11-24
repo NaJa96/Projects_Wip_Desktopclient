@@ -28,7 +28,7 @@ public class ClientController {
 	    	currentAccount = ServerAccess.getAccount();
 	    	
 	    	txtSalutation.setText(currentAccount.getOwner());
-	    	txtAccountBalance.setText(calcBalance());
+	    	//txtAccountBalance.setText(calcBalance());
 	    }
 
 	    @FXML
