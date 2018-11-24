@@ -5,15 +5,17 @@
 <?import javafx.scene.image.Image?>
 <?import javafx.scene.image.ImageView?>
 <?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="336.0" prefWidth="311.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.fhdw.javafx.desktopclient.SampleController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="336.0" prefWidth="311.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.fhdw.javafx.desktopclient.LoginviewController">
    <children>
-      <ImageView fx:id="image" fitHeight="140.0" fitWidth="136.0" layoutX="88.0" layoutY="62.0" pickOnBounds="true" preserveRatio="true">
+      <ImageView fx:id="image" fitHeight="140.0" fitWidth="136.0" layoutX="88.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:/C:/Users/NadinJanßen/git/Projects_Wip_Desktopclient/Project_Wip_Desktopclient/src/de/fhdw/javafx/desktopclient/Deutsche Bertelsbank.png" />
+            <Image url="file:/Deutsche Bertelsbank.png" />
          </image>
       </ImageView>
-      <TextField fx:id="accNumberInput" layoutX="80.0" layoutY="206.0" promptText="Kontonummer" />
+      <TextField fx:id="accNumberInput" alignment="CENTER" layoutX="80.0" layoutY="174.0" promptText="Kontonummer" />
       <Button fx:id="signInBtn" layoutX="118.0" layoutY="260.0" mnemonicParsing="false" onAction="#handleButtonAction" text="Anmelden" />
+      <Text fx:id="errorText" fill="#ce3333" layoutX="20.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="271.00000208616257" />
    </children>
 </AnchorPane>
