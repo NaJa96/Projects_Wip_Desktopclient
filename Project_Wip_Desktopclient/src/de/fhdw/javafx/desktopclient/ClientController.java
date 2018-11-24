@@ -3,11 +3,15 @@ package de.fhdw.javafx.desktopclient;
 import javafx.fxml.FXML;
 import javafx.scene.control.Button;
 import javafx.scene.text.Text;
+
+import java.util.List;
+
 import javafx.event.ActionEvent;
 
 public class ClientController {
 	
 		ServerAccess serverAccess = new ServerAccess();
+		Account currentAccount;
 
 	    @FXML
 	    private Text txtSalutation;
@@ -21,7 +25,10 @@ public class ClientController {
 	    @FXML
 	    public void initialize(){
 	    	
-	    	txtSalutation.setText(ServerAccess.getAccount().getOwner());
+	    	currentAccount = ServerAccess.getAccount();
+	    	
+	    	txtSalutation.setText(currentAccount.getOwner());
+	    	txtAccountBalance.setText(calcBalance());
 	    }
 
 	    @FXML
@@ -29,6 +36,12 @@ public class ClientController {
 	    	
 	    	
 
+	    }
+	    
+	    private String calcBalance(){
+	    	List<Transaction> transactions = currentAccount.getTransactions();
+	    	
+			return null;
 	    }
 
 	}
