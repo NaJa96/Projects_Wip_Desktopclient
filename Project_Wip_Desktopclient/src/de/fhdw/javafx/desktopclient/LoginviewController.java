@@ -31,13 +31,13 @@ public class LoginviewController {
 	ServerAccess serverAccess = new ServerAccess();
 	
 	@FXML
-	private ImageView image;
+    private ImageView imageLogo;
 
-	@FXML
-	private TextField accNumberInput;
+    @FXML
+    private TextField inputTxtAccNumber;
 
-	@FXML
-	private Button signInBtn;
+    @FXML
+    private Button btnSignIn;
 
     @FXML
     private Text errorText;
@@ -47,7 +47,7 @@ public class LoginviewController {
 	void handleButtonAction(ActionEvent event) {
 		
 		try {
-			HttpResponse response = serverAccess.getAccountResponse(accNumberInput.getText());
+			HttpResponse response = serverAccess.getAccountResponse(inputTxtAccNumber.getText());
 			
 			
 			if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
@@ -61,7 +61,7 @@ public class LoginviewController {
 				Stage stage;
 	   			FXMLLoader loader = new FXMLLoader(getClass().getResource("clientview.fxml"));
 	   			Parent root = loader.<Parent>load();
-	   			ClientController controller =  loader.<ClientController>getController();
+	   			ClientviewController controller =  loader.<ClientviewController>getController();
 	   			Scene scene = new Scene(root);
 				stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
 				stage.setScene(scene);

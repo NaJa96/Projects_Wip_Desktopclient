@@ -8,11 +8,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="481.0" prefWidth="707.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="481.0" prefWidth="707.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.fhdw.javafx.desktopclient.TransactionController">
    <children>
-      <ImageView fitHeight="75.0" fitWidth="78.0" layoutX="488.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0">
+      <ImageView fx:id="imageLogo" fitHeight="75.0" fitWidth="78.0" layoutX="488.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0">
          <image>
-            <Image url="@Deutsche%20Bertelsbank%20schrift.png" />
+            <Image url="file:\C:\Users\NadinJan�en\git\Projects_Wip_Desktopclient\Project_Wip_Desktopclient\src\de\fhdw\javafx\desktopclient\Deutsche Bertelsbank.png" />
          </image>
       </ImageView>
       <Text layoutX="38.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kontostand: " />
@@ -21,14 +21,14 @@
             <Font size="20.0" />
          </font>
       </Text>
-      <Text fx:id="accBalance" layoutX="119.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AccBalance" />
+      <Text fx:id="txtAccountBalance" layoutX="119.0" layoutY="116.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AccBalance" />
       <Text layoutX="38.0" layoutY="154.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Betrag" />
       <Text layoutX="38.0" layoutY="202.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kontonummer" />
       <Text layoutX="33.0" layoutY="246.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Verwendungszweck" />
-      <TextField fx:id="transactionValue" layoutX="129.0" layoutY="137.0" />
-      <TextField fx:id="accNumber" layoutX="129.0" layoutY="185.0" />
-      <TextField fx:id="Reference" layoutX="154.0" layoutY="228.0" prefHeight="164.0" prefWidth="494.0" />
-      <Button layoutX="48.0" layoutY="412.0" mnemonicParsing="false" text="Abbrechen" />
-      <Button layoutX="570.0" layoutY="412.0" mnemonicParsing="false" text="Überweisen" />
+      <TextField fx:id="inputTxtValue" layoutX="129.0" layoutY="137.0" />
+      <TextField fx:id="inputTxtAccountNumber" layoutX="129.0" layoutY="185.0" />
+      <TextField fx:id="inputTextPurpose" layoutX="154.0" layoutY="228.0" prefHeight="164.0" prefWidth="494.0" />
+      <Button fx:id="btnCancel" layoutX="48.0" layoutY="412.0" mnemonicParsing="false" text="Abbrechen" />
+      <Button fx:id="btnForward" layoutX="570.0" layoutY="412.0" mnemonicParsing="false" text="Überweisen" />
    </children>
 </AnchorPane>
