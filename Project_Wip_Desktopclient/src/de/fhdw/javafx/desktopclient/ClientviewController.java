@@ -69,7 +69,6 @@ public class ClientviewController {
 
 		String now = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss").format(new Date());
 		now = now.substring(11, 13);
-		System.out.println(now);
 		int intNow = Integer.parseInt(now);
 
 		if (intNow <= 12) {
@@ -80,8 +79,8 @@ public class ClientviewController {
 			txtSalutation.setText("Guten Abend, " + currentAccount.getOwner());
 		}
 
-		txtAccountBalance.setText(calcBalance());
-
+		BigDecimal accountBalance = new BigDecimal(0);
+		
 		tabDate.setCellValueFactory(new PropertyValueFactory<TableRow, String>("transactionDate"));
 		tabSenderReceiver.setCellValueFactory(new PropertyValueFactory<TableRow, String>("senderReceiver"));
 		tabAccNumber.setCellValueFactory(new PropertyValueFactory<TableRow, String>("accountNumber"));
@@ -96,14 +95,21 @@ public class ClientviewController {
 			if (transaction.getSender().getNumber().equals(currentAccount.getNumber())) {
 				tableRow.setSenderReceiver(transaction.getReceiver().getOwner());
 				tableRow.setAccountNumber(transaction.getReceiver().getNumber());
+				accountBalance = accountBalance.subtract(transaction.getAmount());
 			} else {
 				tableRow.setSenderReceiver(transaction.getSender().getOwner());
 				tableRow.setAccountNumber(transaction.getSender().getNumber());
+				accountBalance = accountBalance.add(transaction.getAmount());
 			}
 			tableRow.setAmount(transaction.getAmount());
 			tableRow.setReferenceString(transaction.getReference());
 			tableRows.add(tableRow);
-
+			
+			String accountBalanceAsString = accountBalance.toString();
+			txtAccountBalance.setText(accountBalanceAsString);
+			
+			serverAccess.setAccountBalance(accountBalance);
+			
 			//ToDo: Spalte "Datum" breiter machen
 		}
 
@@ -130,12 +136,5 @@ public class ClientviewController {
 
 	}
 
-	private String calcBalance() {
-		List<Transaction> transactions = currentAccount.getTransactions();
-		for (Transaction element : transactions) {
-			System.out.println(element.getAmount());
-		}
-		return null;
-	}
 
 }
