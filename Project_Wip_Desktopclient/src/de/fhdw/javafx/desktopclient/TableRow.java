@@ -4,6 +4,7 @@ import java.math.BigDecimal;
 import java.util.Date;
 
 public class TableRow {
+	
 	private String transactionDate;
 	private String senderReceiver;
 	private String  accountNumber;

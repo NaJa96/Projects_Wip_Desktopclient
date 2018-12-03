@@ -14,13 +14,24 @@ import javafx.scene.control.TableColumn.CellDataFeatures;
 import javafx.scene.image.ImageView;
 import javafx.scene.control.TableView;
 import javafx.scene.control.cell.PropertyValueFactory;
+import javafx.beans.property.SimpleObjectProperty;
 
 import java.io.IOException;
 import java.math.BigDecimal;
+import java.text.ParseException;
 import java.text.SimpleDateFormat;
+import java.time.format.DateTimeFormatter;
 import java.util.ArrayList;
+import java.util.Comparator;
 import java.util.Date;
 import java.util.List;
+
+import org.apache.http.HttpResponse;
+import org.apache.http.HttpStatus;
+import org.apache.http.util.EntityUtils;
+
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 
 import javafx.collections.ObservableList;
 import javafx.beans.value.ObservableValue;
@@ -60,66 +71,20 @@ public class ClientviewController {
 	private TableColumn<TableRow, String> tabReference;
 
 	@FXML
-	private Button btnTransaction;
+	private Button btnTransactionView;
+	
+    @FXML
+    private Button btnRefresh;
 
 	@FXML
 	public void initialize() {
-
 		currentAccount = ServerAccess.getAccount();
-
-		String now = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss").format(new Date());
-		now = now.substring(11, 13);
-		int intNow = Integer.parseInt(now);
-
-		if (intNow <= 12) {
-			txtSalutation.setText("Guten Morgen, " + currentAccount.getOwner());
-		} else if (intNow <= 17) {
-			txtSalutation.setText("Guten Tag, " + currentAccount.getOwner());
-		} else {
-			txtSalutation.setText("Guten Abend, " + currentAccount.getOwner());
-		}
-
-		BigDecimal accountBalance = new BigDecimal(0);
-		
-		tabDate.setCellValueFactory(new PropertyValueFactory<TableRow, String>("transactionDate"));
-		tabSenderReceiver.setCellValueFactory(new PropertyValueFactory<TableRow, String>("senderReceiver"));
-		tabAccNumber.setCellValueFactory(new PropertyValueFactory<TableRow, String>("accountNumber"));
-		tabAmount.setCellValueFactory(new PropertyValueFactory<TableRow, BigDecimal>("amount"));
-		tabReference.setCellValueFactory(new PropertyValueFactory<TableRow, String>("reference"));
-
-		List<TableRow> tableRows = new ArrayList<TableRow>();
-		List<Transaction> transactions = currentAccount.getTransactions();
-		for (Transaction transaction : transactions) {
-			TableRow tableRow = new TableRow();
-			tableRow.setTransactionDate(new SimpleDateFormat("dd.MM.yyyy HH:mm:ss").format(transaction.getTransactionDate()));
-			if (transaction.getSender().getNumber().equals(currentAccount.getNumber())) {
-				tableRow.setSenderReceiver(transaction.getReceiver().getOwner());
-				tableRow.setAccountNumber(transaction.getReceiver().getNumber());
-				accountBalance = accountBalance.subtract(transaction.getAmount());
-			} else {
-				tableRow.setSenderReceiver(transaction.getSender().getOwner());
-				tableRow.setAccountNumber(transaction.getSender().getNumber());
-				accountBalance = accountBalance.add(transaction.getAmount());
-			}
-			tableRow.setAmount(transaction.getAmount());
-			tableRow.setReferenceString(transaction.getReference());
-			tableRows.add(tableRow);
-			
-			String accountBalanceAsString = accountBalance.toString();
-			txtAccountBalance.setText(accountBalanceAsString);
-			
-			serverAccess.setAccountBalance(accountBalance);
-			
-			//ToDo: Spalte "Datum" breiter machen
-		}
-
-		ObservableList<TableRow> data = FXCollections.observableList(tableRows);
-		tableTransaction.setItems(data);
-
+		setSalutationText();
+		fillTable();
 	}
 
 	@FXML
-	void openTransactionView(ActionEvent event) {
+	void openTransactionViewBtnAction(ActionEvent event) {
 
 		try {
 			Stage stage;
@@ -135,6 +100,90 @@ public class ClientviewController {
 		}
 
 	}
+	
+	@FXML
+    void refreshBtnAction(ActionEvent event) {
+		refresh();
+    }
 
+	public void refresh(){
+		currentAccount = refreshAccount();
+		setSalutationText();
+		fillTable();
+	}
+	
+    protected void setSalutationText(){
+		String now = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss").format(new Date());
+		now = now.substring(11, 13);
+		int intNow = Integer.parseInt(now);
+
+		if (intNow <= 12) {
+			txtSalutation.setText("Guten Morgen, " + currentAccount.getOwner());
+		} else if (intNow <= 17) {
+			txtSalutation.setText("Guten Tag, " + currentAccount.getOwner());
+		} else {
+			txtSalutation.setText("Guten Abend, " + currentAccount.getOwner());
+		}
+    }
+    
+    protected void fillTable(){
+		BigDecimal accountBalance = new BigDecimal(0);
+		
+		tabDate.setCellValueFactory(new PropertyValueFactory<TableRow, String>("transactionDate"));
+		tabSenderReceiver.setCellValueFactory(new PropertyValueFactory<TableRow, String>("senderReceiver"));
+		tabAccNumber.setCellValueFactory(new PropertyValueFactory<TableRow, String>("accountNumber"));
+		tabAmount.setCellValueFactory(new PropertyValueFactory<TableRow, BigDecimal>("amount"));
+		tabReference.setCellValueFactory(new PropertyValueFactory<TableRow, String>("reference"));
+
+		List<TableRow> tableRows = new ArrayList<TableRow>();
+		List<Transaction> transactions = currentAccount.getTransactions();
+		for (Transaction transaction : transactions) {
+			TableRow tableRow = new TableRow();
+			tableRow.setTransactionDate(new SimpleDateFormat("dd.MM.yyyy HH:mm:ss").format(transaction.getTransactionDate()));
+			//tableRow.setTransactionDate(transactionDate);
+			if (transaction.getSender().getNumber().equals(currentAccount.getNumber())) {
+				tableRow.setSenderReceiver(transaction.getReceiver().getOwner());
+				tableRow.setAccountNumber(transaction.getReceiver().getNumber());
+				accountBalance = accountBalance.subtract(transaction.getAmount());
+			} else {
+				tableRow.setSenderReceiver(transaction.getSender().getOwner());
+				tableRow.setAccountNumber(transaction.getSender().getNumber());
+				accountBalance = accountBalance.add(transaction.getAmount());
+			}
+			tableRow.setAmount(transaction.getAmount());
+			tableRow.setReferenceString(transaction.getReference());
+			tableRows.add(tableRow);
+			
+			String accountBalanceAsString = accountBalance.toString();
+			txtAccountBalance.setText(accountBalanceAsString + " €");
+			
+			serverAccess.setAccountBalance(accountBalance);
+			
+			//ToDo: Spalte "Datum" breiter machen
+		}
+
+		ObservableList<TableRow> data = FXCollections.observableList(tableRows);
+		tableTransaction.setItems(data);
+    }
+    
+    protected Account refreshAccount(){
+		try {
+			HttpResponse response = serverAccess.getAccountResponse(currentAccount.getNumber());
+			if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+				String accountNumber = EntityUtils.toString(response.getEntity());
+				Gson gson = new GsonBuilder().create();
+				Account account = gson.fromJson(accountNumber, Account.class);;
+				ServerAccess.setAccount(account);
+				//errorText.setText("");
+				return account;
+			}else{
+				//errorText.setText(EntityUtils.toString(response.getEntity()) + " (Fehler: " + response.getStatusLine().getStatusCode() + ")");
+			}
+		} catch (IOException e) {
+			e.printStackTrace();
+			//errorText.setText("Server nicht verfügbar");
+		}
+		return null;
+    }
 
 }

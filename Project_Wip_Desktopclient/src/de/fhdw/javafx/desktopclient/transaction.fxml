@@ -8,11 +8,11 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="428.0" prefWidth="707.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.fhdw.javafx.desktopclient.TransactionController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="395.0" prefWidth="707.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.fhdw.javafx.desktopclient.TransactionController">
    <children>
       <ImageView fx:id="imageLogo" fitHeight="75.0" fitWidth="78.0" layoutX="617.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="28.917526245117188" AnchorPane.topAnchor="26.0">
          <image>
-            <Image url="file:\Deutsche Bertelsbank.png" />
+            <Image url="@Deutsche%20Bertelsbank%20schrift.png" />
          </image>
       </ImageView>
       <Text layoutX="30.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kontostand: " />
@@ -22,13 +22,14 @@
          </font>
       </Text>
       <Text fx:id="txtAccountBalance" layoutX="160.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="AccBalance" />
-      <Text layoutX="30.0" layoutY="120.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Betrag" />
+      <Text layoutX="30.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Betrag in €" />
       <Text layoutX="30.0" layoutY="160.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kontonummer" />
       <Text layoutX="30.0" layoutY="200.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Verwendungszweck" />
       <TextField fx:id="inputTxtValue" layoutX="160.0" layoutY="104.0" />
       <TextField fx:id="inputTxtAccountNumber" layoutX="160.0" layoutY="144.0" />
-      <TextField fx:id="inputTextPurpose" layoutX="160.0" layoutY="189.0" prefHeight="164.0" prefWidth="494.0" />
-      <Button fx:id="btnCancel" layoutX="48.0" layoutY="387.0" mnemonicParsing="false" onAction="#cancel" text="Abbrechen" />
-      <Button fx:id="btnForward" layoutX="569.0" layoutY="387.0" mnemonicParsing="false" onAction="#transaction" text="Überweisen" />
+      <TextField fx:id="inputTextReference" layoutX="160.0" layoutY="189.0" prefHeight="75.0" prefWidth="494.0" />
+      <Button fx:id="btnCancel" layoutX="51.0" layoutY="344.0" mnemonicParsing="false" onAction="#cancelBtnAction" text="Abbrechen" />
+      <Button fx:id="btnTransaction" layoutX="569.0" layoutY="344.0" mnemonicParsing="false" onAction="#transactionBtnAction" text="Überweisen" />
+      <Text fx:id="errorText" fill="#ce3333" layoutX="160.0" layoutY="295.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="493.99999725818634" />
    </children>
 </AnchorPane>

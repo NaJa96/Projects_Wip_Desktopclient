@@ -24,57 +24,57 @@ import javafx.scene.Parent;
 import javafx.scene.Node;
 import javafx.scene.Scene;
 
-
-
 public class LoginviewController {
 
 	ServerAccess serverAccess = new ServerAccess();
-	
+
 	@FXML
-    private ImageView imageLogo;
+	private ImageView imageLogo;
 
-    @FXML
-    private TextField inputTxtAccNumber;
-
-    @FXML
-    private Button btnSignIn;
-
-    @FXML
-    private Text errorText;
-       		
-    
 	@FXML
-	void handleButtonAction(ActionEvent event) {
-		
-		try {
-			HttpResponse response = serverAccess.getAccountResponse(inputTxtAccNumber.getText());
-			
-			
-			if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
-				String accountNumber = EntityUtils.toString(response.getEntity());
-				Gson gson = new GsonBuilder().create();
-				Account account = gson.fromJson(accountNumber, Account.class);
-				ServerAccess.setAccount(account);
-				System.out.println(account.getOwner());
-				errorText.setText("");
-				
-				Stage stage;
-	   			FXMLLoader loader = new FXMLLoader(getClass().getResource("clientview.fxml"));
-	   			Parent root = loader.<Parent>load();
-	   			ClientviewController controller =  loader.<ClientviewController>getController();
-	   			Scene scene = new Scene(root);
-				stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
-				stage.setScene(scene);
-				stage.show();
+	private TextField inputTxtAccNumber;
 
-				
-			}else{
-				errorText.setText(EntityUtils.toString(response.getEntity()) + " (Fehler: " + response.getStatusLine().getStatusCode() + ")");
+	@FXML
+	private Button btnSignIn;
+
+	@FXML
+	private Text errorText;
+
+	@FXML
+	void handleButtonAction(ActionEvent event) throws IOException {
+
+		errorText.setText("Bitte gib eine Kontonummer ein");
+
+		if (!inputTxtAccNumber.getText().isEmpty()) {
+			try {
+
+				HttpResponse response = serverAccess.getAccountResponse(inputTxtAccNumber.getText());
+
+				if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
+					String accountNumber = EntityUtils.toString(response.getEntity());
+					Gson gson = new GsonBuilder().create();
+					Account account = gson.fromJson(accountNumber, Account.class);
+					ServerAccess.setAccount(account);
+
+					FXMLLoader loader = new FXMLLoader(getClass().getResource("clientview.fxml"));
+					Parent root = loader.<Parent>load();
+					ClientviewController controller = loader.<ClientviewController>getController();
+					Scene scene = new Scene(root);
+					Stage stage = (Stage) ((Node) event.getSource()).getScene().getWindow();
+					stage.setScene(scene);
+					stage.show();
+
+				} else {
+					errorText.setText(EntityUtils.toString(response.getEntity()) + " (Fehler: "
+							+ response.getStatusLine().getStatusCode() + ")");
+				}
+			} catch (IOException e) {
+				e.printStackTrace();
+				errorText.setText("Server nicht verfügbar");
 			}
-		} catch (IOException e) {
-			e.printStackTrace();
-			errorText.setText("Server nischt verfügbar, kommese später wieder oda rufen se crissi an");
+
 		}
+
 	}
 
 }
