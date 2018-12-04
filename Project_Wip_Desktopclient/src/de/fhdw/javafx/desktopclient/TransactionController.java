@@ -3,8 +3,6 @@ package de.fhdw.javafx.desktopclient;
 import java.io.IOException;
 import java.math.BigDecimal;
 
-import javax.swing.plaf.synth.SynthSeparatorUI;
-
 import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.util.EntityUtils;
