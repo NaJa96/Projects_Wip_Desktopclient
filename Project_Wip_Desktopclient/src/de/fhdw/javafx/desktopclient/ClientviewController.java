@@ -75,6 +75,9 @@ public class ClientviewController {
 	
     @FXML
     private Button btnRefresh;
+    
+    @FXML
+    private Text txtError;
 
 	@FXML
 	public void initialize() {
@@ -159,7 +162,7 @@ public class ClientviewController {
 			
 			serverAccess.setAccountBalance(accountBalance);
 			
-			//ToDo: Spalte "Datum" breiter machen
+			//ToDo: Spalten prüfen 
 		}
 
 		ObservableList<TableRow> data = FXCollections.observableList(tableRows);
@@ -174,14 +177,14 @@ public class ClientviewController {
 				Gson gson = new GsonBuilder().create();
 				Account account = gson.fromJson(accountNumber, Account.class);;
 				ServerAccess.setAccount(account);
-				//errorText.setText("");
+				txtError.setText("");
 				return account;
 			}else{
-				//errorText.setText(EntityUtils.toString(response.getEntity()) + " (Fehler: " + response.getStatusLine().getStatusCode() + ")");
+				txtError.setText(EntityUtils.toString(response.getEntity()) + " (Fehler: " + response.getStatusLine().getStatusCode() + ")");
 			}
 		} catch (IOException e) {
 			e.printStackTrace();
-			//errorText.setText("Server nicht verfügbar");
+			txtError.setText("Server nicht verfügbar");
 		}
 		return null;
     }

@@ -12,7 +12,7 @@
    <children>
       <ImageView fx:id="imageLogo" fitHeight="75.0" fitWidth="78.0" layoutX="617.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="28.917526245117188" AnchorPane.topAnchor="26.0">
          <image>
-            <Image url="@Deutsche%20Bertelsbank%20schrift.png" />
+            <Image url="file:/C:/Users/NadinJanßen/git/Projects_Wip_Desktopclient/Project_Wip_Desktopclient/src/de/fhdw/javafx/desktopclient/DeutscheBertelsbank.png" />
          </image>
       </ImageView>
       <Text layoutX="30.0" layoutY="80.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kontostand: " />

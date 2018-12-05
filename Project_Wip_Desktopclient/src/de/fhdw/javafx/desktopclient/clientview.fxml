@@ -20,7 +20,7 @@
       <Text fx:id="txtAccountBalance" layoutX="101.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="accBalance" />
       <ImageView fx:id="imageLogo" fitHeight="75.0" fitWidth="78.0" layoutX="488.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0">
          <image>
-            <Image url="@Deutsche%20Bertelsbank%20schrift.png" />
+            <Image url="file:/C:/Users/NadinJanßen/Documents/Uni/projekte%20der%20wirtschaftsinformatik/screnbuilder/Deutsche%20Bertelsbank.png" />
          </image>
       </ImageView>
       <Text layoutX="23.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Transaktionen:" />
@@ -35,5 +35,6 @@
         </columns>
       </TableView>
       <Button fx:id="btnRefresh" layoutX="381.0" layoutY="37.0" mnemonicParsing="false" onAction="#refreshBtnAction" text="Aktualisieren" />
+      <Text fx:id="txtError" fill="RED" layoutX="204.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="354.06768798828125" />
    </children>
 </AnchorPane>

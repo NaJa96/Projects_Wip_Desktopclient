@@ -22,6 +22,12 @@ public class ServerAccess {
 	static Account account;
 
 	static BigDecimal accountBalance;
+	
+	private static String ipAdress;
+
+	public static void setIpAdress(String ipAdress) {
+		ServerAccess.ipAdress = ipAdress;
+	}
 
 	public static BigDecimal getAccountBalance() {
 		return accountBalance;
@@ -43,7 +49,7 @@ public class ServerAccess {
 
 		HttpResponse response;
 		HttpClient client = HttpClients.createDefault();
-		HttpGet get = new HttpGet(String.format("http://localhost:9998/rest/account/" + accountNumber));
+		HttpGet get = new HttpGet(String.format("http://%s/rest/account/%s" , ipAdress, accountNumber));
 		return response = client.execute(get);
 
 	}
@@ -51,7 +57,7 @@ public class ServerAccess {
 	public HttpResponse postTransaction(String senderNumber, String receiverNumber, String amount, String reference) throws ClientProtocolException, IOException {
 
 		HttpClient client = new DefaultHttpClient();
-		HttpPost post = new HttpPost("http://localhost:9998/rest/transaction");
+		HttpPost post = new HttpPost(String.format("http://%s/rest/transaction", ipAdress));
 		List<NameValuePair> parameterList = new ArrayList<>();
 		parameterList.add(new BasicNameValuePair("senderNumber", senderNumber));
 		parameterList.add(new BasicNameValuePair("receiverNumber", receiverNumber));

@@ -36,15 +36,19 @@ public class LoginviewController {
 
 	@FXML
 	private Text errorText;
+	
+    @FXML
+    private TextField inputTxtIpAdress;
 
 	@FXML
-	void handleButtonAction(ActionEvent event) throws IOException {
+	void signInButtonAction(ActionEvent event) throws IOException {
 
 		errorText.setText("Bitte gib eine Kontonummer ein");
 
 		if (!inputTxtAccNumber.getText().isEmpty()) {
 			try {
-
+				
+				ServerAccess.setIpAdress(inputTxtIpAdress.getText().toString());
 				HttpResponse response = serverAccess.getAccountResponse(inputTxtAccNumber.getText());
 
 				if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {
