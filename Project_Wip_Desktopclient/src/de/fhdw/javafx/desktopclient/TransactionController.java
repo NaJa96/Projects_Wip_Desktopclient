@@ -47,7 +47,7 @@ public class TransactionController {
 	private Button btnForward;
 
 	@FXML
-	private Text errorText;
+	private Text txtError;
 
 	@FXML
 	public void initialize() {
@@ -100,7 +100,7 @@ public class TransactionController {
 			if (statusCode != HttpStatus.SC_NO_CONTENT) {
 				entityMsg = EntityUtils.toString(httpResponse.getEntity(), "UTF-8");
 				String errorMsg = " (Fehler " + httpResponse.getStatusLine().getStatusCode() + ")";
-				errorText.setText(entityMsg + errorMsg);
+				txtError.setText(entityMsg + errorMsg);
 			}else{
 				try {
 					Stage stage;
@@ -117,7 +117,7 @@ public class TransactionController {
 				}
 			}
 		} catch (IOException e) {
-			errorText.setText("Server nicht verfügbar. Versuchen Sie es später noch mal.");
+			txtError.setText("Server nicht verfügbar. Versuchen Sie es später noch mal.");
 		}
 
 		

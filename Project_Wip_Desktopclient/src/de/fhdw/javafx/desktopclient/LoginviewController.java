@@ -35,7 +35,7 @@ public class LoginviewController {
 	private Button btnSignIn;
 
 	@FXML
-	private Text errorText;
+	private Text txtError;
 	
     @FXML
     private TextField inputTxtIpAdress;
@@ -43,7 +43,7 @@ public class LoginviewController {
 	@FXML
 	void signInButtonAction(ActionEvent event) throws IOException {
 
-		errorText.setText("Bitte gib eine Kontonummer ein");
+		txtError.setText("Bitte gib eine Kontonummer ein");
 
 		if (!inputTxtAccNumber.getText().isEmpty()) {
 			try {
@@ -66,12 +66,12 @@ public class LoginviewController {
 					stage.show();
 
 				} else {
-					errorText.setText(EntityUtils.toString(response.getEntity()) + " (Fehler: "
+					txtError.setText(EntityUtils.toString(response.getEntity()) + " (Fehler: "
 							+ response.getStatusLine().getStatusCode() + ")");
 				}
 			} catch (IOException e) {
 				e.printStackTrace();
-				errorText.setText("Server nicht verfügbar");
+				txtError.setText("Server nicht verfügbar");
 			}
 
 		}

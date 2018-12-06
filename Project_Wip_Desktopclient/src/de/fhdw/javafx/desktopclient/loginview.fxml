@@ -16,7 +16,7 @@
       </ImageView>
       <TextField fx:id="inputTxtAccNumber" alignment="CENTER" layoutX="80.0" layoutY="174.0" promptText="Kontonummer" />
       <Button fx:id="btnSignIn" layoutX="118.0" layoutY="260.0" mnemonicParsing="false" onAction="#signInButtonAction" text="Anmelden" />
-      <Text fx:id="errorText" fill="#ce3333" layoutX="20.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="271.3333150744438" />
+      <Text fx:id="txtError" fill="#ce3333" layoutX="20.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="271.3333150744438" />
       <TextField fx:id="inputTxtIpAdress" alignment="CENTER" layoutX="80.0" layoutY="314.0" promptText="IP Adresse" />
    </children>
 </AnchorPane>

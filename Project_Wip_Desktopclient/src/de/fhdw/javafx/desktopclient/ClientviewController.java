@@ -148,12 +148,17 @@ public class ClientviewController {
 				tableRow.setSenderReceiver(transaction.getReceiver().getOwner());
 				tableRow.setAccountNumber(transaction.getReceiver().getNumber());
 				accountBalance = accountBalance.subtract(transaction.getAmount());
+			    BigDecimal negative = new BigDecimal(-1);
+			    tableRow.setAmount(transaction.getAmount().multiply(negative));
+			    
 			} else {
 				tableRow.setSenderReceiver(transaction.getSender().getOwner());
 				tableRow.setAccountNumber(transaction.getSender().getNumber());
 				accountBalance = accountBalance.add(transaction.getAmount());
+				tableRow.setAmount(transaction.getAmount());
 			}
-			tableRow.setAmount(transaction.getAmount());
+			
+			
 			tableRow.setReferenceString(transaction.getReference());
 			tableRows.add(tableRow);
 			
