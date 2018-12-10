@@ -9,32 +9,32 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="451.0" prefWidth="704.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.fhdw.javafx.desktopclient.ClientviewController">
+<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.fhdw.javafx.desktopclient.ClientviewController">
    <children>
-      <Text fx:id="txtSalutation" layoutX="23.0" layoutY="44.0" strokeType="OUTSIDE" strokeWidth="0.0" text="txt">
+      <Text fx:id="txtSalutation" layoutX="60.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="txt" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="60.0">
          <font>
-            <Font size="20.0" />
+            <Font size="29.0" />
          </font>
       </Text>
-      <Text layoutX="23.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kontostand: " />
-      <Text fx:id="txtAccountBalance" layoutX="101.0" layoutY="75.0" strokeType="OUTSIDE" strokeWidth="0.0" text="accBalance" />
-      <ImageView fx:id="imageLogo" fitHeight="75.0" fitWidth="78.0" layoutX="488.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="25.0" AnchorPane.topAnchor="25.0">
+      <Text layoutX="60.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kontostand: " AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="110.0" />
+      <Text fx:id="txtAccountBalance" layoutX="130.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="accBalance" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="110.0" />
+      <ImageView fx:id="imageLogo" fitHeight="75.0" fitWidth="78.0" layoutX="488.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="55.0" AnchorPane.topAnchor="55.0">
          <image>
-            <Image url="file:/C:/Users/NadinJanßen/Documents/Uni/projekte%20der%20wirtschaftsinformatik/screnbuilder/Deutsche%20Bertelsbank.png" />
+            <Image url="@.\\images\\DeutscheBertelsbank.png" />
          </image>
       </ImageView>
-      <Text layoutX="23.0" layoutY="109.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Transaktionen:" />
-      <Button fx:id="btnTransactionView" layoutX="481.0" layoutY="36.0" mnemonicParsing="false" onAction="#openTransactionViewBtnAction" text="Überweisung" />
-      <TableView fx:id="tableTransaction" layoutX="32.0" layoutY="132.0" prefHeight="320.0" prefWidth="648.0">
+      <Text layoutX="60.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Transaktionen:" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="145.0" />
+      <Button fx:id="btnTransactionView" layoutX="481.0" layoutY="36.0" mnemonicParsing="false" onAction="#openTransactionViewBtnAction" text="Überweisung" AnchorPane.rightAnchor="150.0" AnchorPane.topAnchor="60.0" />
+      <TableView fx:id="tableTransaction" layoutX="33.0" layoutY="176.0" prefHeight="450.0" prefWidth="880.0" AnchorPane.bottomAnchor="60.0" AnchorPane.leftAnchor="60.0" AnchorPane.rightAnchor="60.0">
         <columns>
-          <TableColumn fx:id="tabDate" editable="false" prefWidth="126.0" sortable="false" text="Datum" />
-          <TableColumn fx:id="tabSenderReceiver" editable="false" prefWidth="120.0" sortable="false" text="Sender/ Empfänger" />
-            <TableColumn fx:id="tabAccNumber" editable="false" prefWidth="100.66668701171875" sortable="false" text="Kontonummer" />
-            <TableColumn fx:id="tabAmount" editable="false" prefWidth="85.33331298828125" sortable="false" text="Betrag in €" />
-            <TableColumn fx:id="tabReference" editable="false" prefWidth="218.66668701171875" sortable="false" text="Zweck" />
+          <TableColumn fx:id="tabDate" editable="false" prefWidth="126.33334350585938" sortable="false" text="Datum" />
+          <TableColumn fx:id="tabSenderReceiver" editable="false" prefWidth="129.0" sortable="false" text="Sender/ Empfänger" />
+            <TableColumn fx:id="tabAccNumber" editable="false" prefWidth="94.0" sortable="false" text="Kontonummer" />
+            <TableColumn fx:id="tabAmount" editable="false" prefWidth="75.0" sortable="false" text="Betrag in €" />
+            <TableColumn fx:id="tabReference" editable="false" prefWidth="460.0" sortable="false" text="Zweck" />
         </columns>
       </TableView>
-      <Button fx:id="btnRefresh" layoutX="381.0" layoutY="37.0" mnemonicParsing="false" onAction="#refreshBtnAction" text="Aktualisieren" />
-      <Text fx:id="txtError" fill="RED" layoutX="204.0" layoutY="121.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="354.06768798828125" />
+      <Button fx:id="btnRefresh" layoutX="381.0" layoutY="37.0" mnemonicParsing="false" onAction="#refreshBtnAction" text="Aktualisieren" AnchorPane.rightAnchor="270.0" AnchorPane.topAnchor="60.0" />
+      <Text fx:id="txtError" fill="RED" layoutX="257.0" layoutY="77.0" strokeType="OUTSIDE" strokeWidth="0.0" wrappingWidth="354.06768798828125" />
    </children>
 </AnchorPane>

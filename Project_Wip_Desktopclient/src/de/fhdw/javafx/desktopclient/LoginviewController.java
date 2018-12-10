@@ -38,7 +38,7 @@ public class LoginviewController {
 	private Text txtError;
 	
     @FXML
-    private TextField inputTxtIpAdress;
+    private TextField inputTxtIpAddress;
 
 	@FXML
 	void signInButtonAction(ActionEvent event) throws IOException {
@@ -48,7 +48,7 @@ public class LoginviewController {
 		if (!inputTxtAccNumber.getText().isEmpty()) {
 			try {
 				
-				ServerAccess.setIpAdress(inputTxtIpAdress.getText().toString());
+				ServerAccess.setIpAdress(inputTxtIpAddress.getText().toString());
 				HttpResponse response = serverAccess.getAccountResponse(inputTxtAccNumber.getText());
 
 				if (response.getStatusLine().getStatusCode() == HttpStatus.SC_OK) {

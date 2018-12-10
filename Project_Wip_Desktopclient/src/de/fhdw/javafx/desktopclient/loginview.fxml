@@ -11,12 +11,12 @@
    <children>
       <ImageView fx:id="imageLogo" fitHeight="140.0" fitWidth="136.0" layoutX="88.0" layoutY="33.0" pickOnBounds="true" preserveRatio="true">
          <image>
-            <Image url="file:/C:/Users/NadinJanßen/Documents/Uni/projekte%20der%20wirtschaftsinformatik/screnbuilder/DeutscheBertelsbank.png" />
+            <Image url="@.\\images\\DeutscheBertelsbank.png" />
          </image>
       </ImageView>
       <TextField fx:id="inputTxtAccNumber" alignment="CENTER" layoutX="80.0" layoutY="174.0" promptText="Kontonummer" />
       <Button fx:id="btnSignIn" layoutX="118.0" layoutY="260.0" mnemonicParsing="false" onAction="#signInButtonAction" text="Anmelden" />
       <Text fx:id="txtError" fill="#ce3333" layoutX="20.0" layoutY="230.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="271.3333150744438" />
-      <TextField fx:id="inputTxtIpAdress" alignment="CENTER" layoutX="80.0" layoutY="314.0" promptText="IP Adresse" />
+      <TextField fx:id="inputTxtIpAddress" alignment="CENTER" layoutX="80.0" layoutY="314.0" promptText="IP Adresse" text="localhost:9998" />
    </children>
 </AnchorPane>

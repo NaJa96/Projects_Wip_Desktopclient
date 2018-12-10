@@ -58,7 +58,7 @@ public class TransactionController {
 		txtAccountBalance.setText(accountBalanceAsString);
 
 	}
-
+	
 	@FXML
 	void cancelBtnAction(ActionEvent event) {
 
