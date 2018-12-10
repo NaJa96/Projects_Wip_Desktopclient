@@ -8,7 +8,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.fhdw.javafx.desktopclient.TransactionController">
+<AnchorPane maxHeight="700.0" maxWidth="1000.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1"fx:controller="de.fhdw.javafx.desktopclient.TransactionController">
    <children>
       <ImageView fx:id="imageLogo" fitHeight="75.0" fitWidth="78.0" layoutX="617.0" layoutY="26.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="60.0" AnchorPane.topAnchor="60.0">
          <image>
@@ -25,9 +25,9 @@
       <Text layoutX="56.0" layoutY="250.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Betrag in €" AnchorPane.leftAnchor="56.0" />
       <Text layoutX="55.0" layoutY="325.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Kontonummer" AnchorPane.leftAnchor="55.0" />
       <Text layoutX="56.0" layoutY="400.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Verwendungszweck" AnchorPane.leftAnchor="56.0" />
-      <TextField fx:id="inputTxtValue" layoutX="200.0" layoutY="233.0" AnchorPane.leftAnchor="200.0" />
-      <TextField fx:id="inputTxtAccountNumber" layoutX="200.0" layoutY="306.0" AnchorPane.leftAnchor="200.0" />
-      <TextField fx:id="inputTextReference" layoutX="200.0" layoutY="375.0" prefHeight="16.0" prefWidth="494.0" AnchorPane.leftAnchor="200.0" />
+      <TextField fx:id="inputTxtValue" layoutX="200.0" layoutY="233.0" promptText="z.B. 10,00" AnchorPane.leftAnchor="200.0" />
+      <TextField fx:id="inputTxtAccountNumber" layoutX="200.0" layoutY="306.0" promptText="z.B. 1000" AnchorPane.leftAnchor="200.0" />
+      <TextField fx:id="inputTextReference" layoutX="200.0" layoutY="375.0" prefHeight="16.0" prefWidth="494.0" promptText="z.B. Einkauf" AnchorPane.leftAnchor="200.0" />
       <Button fx:id="btnCancel" layoutX="56.0" layoutY="500.0" mnemonicParsing="false" onAction="#cancelBtnAction" text="Abbrechen" AnchorPane.leftAnchor="60.0" />
       <Button fx:id="btnTransaction" layoutX="611.0" layoutY="500.0" mnemonicParsing="false" onAction="#transactionBtnAction" text="Überweisen" />
       <Text fx:id="txtError" fill="#ce3333" layoutX="117.0" layoutY="462.0" strokeType="OUTSIDE" strokeWidth="0.0" textAlignment="CENTER" wrappingWidth="493.99999725818634" />
