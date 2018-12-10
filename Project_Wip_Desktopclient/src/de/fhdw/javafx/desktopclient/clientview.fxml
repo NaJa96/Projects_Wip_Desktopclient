@@ -31,7 +31,7 @@
           <TableColumn fx:id="tabSenderReceiver" editable="false" prefWidth="129.0" sortable="false" text="Sender/ Empfänger" />
             <TableColumn fx:id="tabAccNumber" editable="false" prefWidth="94.0" sortable="false" text="Kontonummer" />
             <TableColumn fx:id="tabAmount" editable="false" prefWidth="75.0" sortable="false" text="Betrag in €" />
-            <TableColumn fx:id="tabReference" editable="false" prefWidth="460.0" sortable="false" text="Zweck" />
+            <TableColumn fx:id="tabReference" editable="false" prefWidth="460.0" sortable="false" text="Verwendungszweck" />
         </columns>
       </TableView>
       <Button fx:id="btnRefresh" layoutX="381.0" layoutY="37.0" mnemonicParsing="false" onAction="#refreshBtnAction" text="Aktualisieren" AnchorPane.rightAnchor="270.0" AnchorPane.topAnchor="60.0" />

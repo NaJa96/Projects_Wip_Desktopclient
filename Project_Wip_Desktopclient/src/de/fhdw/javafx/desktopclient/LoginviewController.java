@@ -43,7 +43,7 @@ public class LoginviewController {
 	@FXML
 	void signInButtonAction(ActionEvent event) throws IOException {
 
-		txtError.setText("Bitte gib eine Kontonummer ein");
+		//txtError.setText("Bitte gib eine Kontonummer ein");
 
 		if (!inputTxtAccNumber.getText().isEmpty()) {
 			try {
