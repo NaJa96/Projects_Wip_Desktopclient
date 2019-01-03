@@ -43,10 +43,15 @@ public class LoginviewController {
     @FXML
     private TextField inputTxtIpAddress;
 
+	/**
+	 * Set the IP address and check the account number with querying the account information from the server
+	 * 
+	 * @param event
+	 * @throws IOException
+	 * @author NadinJanﬂen
+	 */
 	@FXML
 	void signInButtonAction(ActionEvent event) throws IOException {
-
-		//txtError.setText("Bitte gib eine Kontonummer ein");
 
 		if (!inputTxtAccNumber.getText().isEmpty()) {
 			try {

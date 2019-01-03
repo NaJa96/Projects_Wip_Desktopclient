@@ -84,6 +84,10 @@ public class ClientviewController {
     @FXML
     private Text txtError;
 
+	/**
+	 * Initializing the current account and calling the methods for creating the table and the welcome text
+	 * @author NadinJanﬂen
+	 */
 	@FXML
 	public void initialize() {
 		currentAccount = ServerAccess.getAccount();
@@ -91,6 +95,11 @@ public class ClientviewController {
 		fillTable();
 	}
 
+	/**
+	 * open the transaction overview
+	 * @param event
+	 * @author NadinJanﬂen
+	 */
 	@FXML
 	void openTransactionViewBtnAction(ActionEvent event) {
 
@@ -109,17 +118,30 @@ public class ClientviewController {
 
 	}
 	
+	/**
+	 * Call up the refresh function when pressing the refresh button
+	 * @param event
+	 * @author NadinJanﬂen
+	 */
 	@FXML
     void refreshBtnAction(ActionEvent event) {
 		refresh();
     }
 
+	/**
+	 * Update the account by server query and calling the methods for creating the table and the welcome text
+	 * @author NadinJanﬂen
+	 */
 	public void refresh(){
 		currentAccount = refreshAccount();
 		setSalutationText();
 		fillTable();
 	}
 	
+    /**
+     * creating the welcome text
+     * @author NadinJanﬂen
+     */
     protected void setSalutationText(){
 		String now = new SimpleDateFormat("dd.MM.yyyy HH:mm:ss").format(new Date());
 		now = now.substring(11, 13);
@@ -134,6 +156,10 @@ public class ClientviewController {
 		}
     }
     
+    /**
+     * creating the table of transactions
+     * @author NadinJanﬂen
+     */
     protected void fillTable(){
 		BigDecimal accountBalance = new BigDecimal(0);
 		
@@ -180,7 +206,9 @@ public class ClientviewController {
     }
     
     /**
-     * @return
+     * Updating the account by server query and returning the data as an account (id, owner, number and list of transactions)
+     * @return Account
+     * @author NadinJanﬂen
      */
     protected Account refreshAccount(){
 		try {

@@ -52,7 +52,9 @@ public class TransactionController {
 	private Text txtError;
 
 	/**
+	 * initialize the transaction overview with the account balance
 	 * 
+	 * @author Nadin Janﬂen
 	 */
 	@FXML
 	public void initialize() {
@@ -65,7 +67,7 @@ public class TransactionController {
 	}
 	
 	/**
-	 * description
+	 * return to clientview
 	 * 
 	 * @param event
 	 * @author Nadin Janﬂen
@@ -89,7 +91,7 @@ public class TransactionController {
 	}
 
 	/**
-	 * description
+	 * carry out the transaction
 	 * 
 	 * @param event
 	 * @author Nadin Janﬂen

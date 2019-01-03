@@ -12,6 +12,9 @@ import javafx.fxml.FXMLLoader;
 public class Main extends Application {
 
 
+	/* (non-Javadoc)
+	 * @see javafx.application.Application#start(javafx.stage.Stage)
+	 */
 	@Override
 	public void start(Stage primaryStage) {
 		try {
@@ -25,6 +28,10 @@ public class Main extends Application {
 	}
 	
 
+	/**
+	 * @param args
+	 * @author Nadin Janﬂen
+	 */
 	public static void main(String[] args) {
 		launch(args);
 	}
