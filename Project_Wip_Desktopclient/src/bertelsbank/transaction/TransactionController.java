@@ -1,4 +1,4 @@
-package de.fhdw.javafx.desktopclient;
+package bertelsbank.transaction;
 
 import java.io.IOException;
 import java.math.BigDecimal;
@@ -7,6 +7,8 @@ import org.apache.http.HttpResponse;
 import org.apache.http.HttpStatus;
 import org.apache.http.util.EntityUtils;
 
+import bertelsbank.clientview.ClientviewController;
+import de.fhdw.javafx.desktopclient.ServerAccess;
 import javafx.event.ActionEvent;
 
 import javafx.fxml.FXML;
@@ -49,6 +51,9 @@ public class TransactionController {
 	@FXML
 	private Text txtError;
 
+	/**
+	 * 
+	 */
 	@FXML
 	public void initialize() {
 		currentAccount = ServerAccess.getAccount();
@@ -59,12 +64,18 @@ public class TransactionController {
 
 	}
 	
+	/**
+	 * description
+	 * 
+	 * @param event
+	 * @author Nadin Janﬂen
+	 */
 	@FXML
 	void cancelBtnAction(ActionEvent event) {
 
 		try {
 			Stage stage;
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("clientview.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/bertelsbank/clientview/clientview.fxml"));
 			Parent root = loader.<Parent>load();
 			ClientviewController controller = loader.<ClientviewController>getController();
 			Scene scene = new Scene(root);
@@ -104,7 +115,7 @@ public class TransactionController {
 			}else{
 				try {
 					Stage stage;
-					FXMLLoader loader = new FXMLLoader(getClass().getResource("clientview.fxml"));
+					FXMLLoader loader = new FXMLLoader(getClass().getResource("/bertelsbank/clientview/clientview.fxml"));
 					Parent root = loader.<Parent>load();
 					ClientviewController controller = loader.<ClientviewController>getController();
 					controller.refresh();

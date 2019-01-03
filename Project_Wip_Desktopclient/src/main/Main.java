@@ -1,4 +1,4 @@
-package de.fhdw.javafx.desktopclient;
+package main;
 
 import javafx.application.Application;
 import javafx.stage.Stage;
@@ -15,7 +15,7 @@ public class Main extends Application {
 	@Override
 	public void start(Stage primaryStage) {
 		try {
-			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("loginview.fxml")); //
+			AnchorPane root = (AnchorPane)FXMLLoader.load(getClass().getResource("/bertelsbank/loginview/loginview.fxml")); //
 			Scene scene = new Scene(root);
 			primaryStage.setScene(scene);
 			primaryStage.show();

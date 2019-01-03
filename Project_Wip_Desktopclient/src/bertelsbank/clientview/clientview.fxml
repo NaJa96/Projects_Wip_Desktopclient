@@ -9,7 +9,7 @@
 <?import javafx.scene.text.Font?>
 <?import javafx.scene.text.Text?>
 
-<AnchorPane maxHeight="700.0" maxWidth="1000.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="de.fhdw.javafx.desktopclient.ClientviewController">
+<AnchorPane maxHeight="700.0" maxWidth="1000.0" minHeight="-Infinity" minWidth="-Infinity" prefHeight="700.0" prefWidth="1000.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="bertelsbank.clientview.ClientviewController">
    <children>
       <Text fx:id="txtSalutation" layoutX="60.0" layoutY="60.0" strokeType="OUTSIDE" strokeWidth="0.0" text="txt" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="60.0">
          <font>
@@ -20,7 +20,7 @@
       <Text fx:id="txtAccountBalance" layoutX="130.0" layoutY="100.0" strokeType="OUTSIDE" strokeWidth="0.0" text="accBalance" AnchorPane.leftAnchor="130.0" AnchorPane.topAnchor="110.0" />
       <ImageView fx:id="imageLogo" fitHeight="75.0" fitWidth="78.0" layoutX="488.0" layoutY="25.0" pickOnBounds="true" preserveRatio="true" AnchorPane.rightAnchor="55.0" AnchorPane.topAnchor="55.0">
          <image>
-            <Image url="@.\\images\\DeutscheBertelsbank.png" />
+            <Image url="@DeutscheBertelsbank.png" />
          </image>
       </ImageView>
       <Text layoutX="60.0" layoutY="150.0" strokeType="OUTSIDE" strokeWidth="0.0" text="Transaktionen:" AnchorPane.leftAnchor="60.0" AnchorPane.topAnchor="145.0" />

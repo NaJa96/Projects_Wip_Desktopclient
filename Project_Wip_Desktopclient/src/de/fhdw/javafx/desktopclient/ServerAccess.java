@@ -18,6 +18,8 @@ import org.apache.http.params.BasicHttpParams;
 import org.apache.http.params.HttpConnectionParams;
 import org.apache.http.params.HttpParams;
 
+import bertelsbank.transaction.Account;
+
 import java.util.ArrayList;
 
 public class ServerAccess {

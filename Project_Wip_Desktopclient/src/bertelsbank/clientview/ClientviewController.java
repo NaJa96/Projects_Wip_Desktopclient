@@ -1,4 +1,4 @@
-package de.fhdw.javafx.desktopclient;
+package bertelsbank.clientview;
 
 import javafx.fxml.FXML;
 import javafx.fxml.FXMLLoader;
@@ -33,6 +33,11 @@ import org.apache.http.util.EntityUtils;
 import com.google.gson.Gson;
 import com.google.gson.GsonBuilder;
 
+import bertelsbank.transaction.Account;
+import bertelsbank.transaction.TransactionController;
+import de.fhdw.javafx.desktopclient.ServerAccess;
+import de.fhdw.javafx.desktopclient.TableRow;
+import de.fhdw.javafx.desktopclient.Transaction;
 import javafx.collections.ObservableList;
 import javafx.beans.value.ObservableValue;
 import javafx.collections.FXCollections;
@@ -91,7 +96,7 @@ public class ClientviewController {
 
 		try {
 			Stage stage;
-			FXMLLoader loader = new FXMLLoader(getClass().getResource("transaction.fxml"));
+			FXMLLoader loader = new FXMLLoader(getClass().getResource("/bertelsbank/transaction/transaction.fxml"));
 			Parent root = loader.<Parent>load();
 			TransactionController controller = loader.<TransactionController>getController();
 			Scene scene = new Scene(root);
@@ -174,6 +179,9 @@ public class ClientviewController {
 		tableTransaction.setItems(data);
     }
     
+    /**
+     * @return
+     */
     protected Account refreshAccount(){
 		try {
 			HttpResponse response = serverAccess.getAccountResponse(currentAccount.getNumber());
