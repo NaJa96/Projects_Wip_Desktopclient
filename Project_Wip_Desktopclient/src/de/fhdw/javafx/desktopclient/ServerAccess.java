@@ -54,7 +54,7 @@ public class ServerAccess {
 
 		HttpResponse response;
 		final HttpParams httpParams = new BasicHttpParams();
-	    HttpConnectionParams.setConnectionTimeout(httpParams, 2000);
+	    HttpConnectionParams.setConnectionTimeout(httpParams, 3000);
 	    DefaultHttpClient client = new DefaultHttpClient(httpParams);
 		HttpGet get = new HttpGet(String.format("http://%s/rest/account/%s" , ipAddress, accountNumber));
 		return response = client.execute(get);
@@ -64,7 +64,7 @@ public class ServerAccess {
 	public HttpResponse postTransaction(String senderNumber, String receiverNumber, String amount, String reference) throws ClientProtocolException, IOException {
 		
 		final HttpParams httpParams = new BasicHttpParams();
-	    HttpConnectionParams.setConnectionTimeout(httpParams, 2000);
+	    HttpConnectionParams.setConnectionTimeout(httpParams, 3000);
 	    DefaultHttpClient client = new DefaultHttpClient(httpParams);
 		HttpPost post = new HttpPost(String.format("http://%s/rest/transaction", ipAddress));
 		List<NameValuePair> parameterList = new ArrayList<>();
