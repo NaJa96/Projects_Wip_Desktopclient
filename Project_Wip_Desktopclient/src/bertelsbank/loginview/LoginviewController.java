@@ -46,7 +46,7 @@ public class LoginviewController {
 	/**
 	 * Set the IP address and check the account number with querying the account information from the server
 	 * 
-	 * @param event
+	 * @param event sign in button is pressed
 	 * @throws IOException
 	 * @author NadinJanﬂen
 	 */

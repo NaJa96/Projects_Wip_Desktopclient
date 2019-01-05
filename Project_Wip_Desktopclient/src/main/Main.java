@@ -29,7 +29,7 @@ public class Main extends Application {
 	
 
 	/**
-	 * @param args
+	 * @param args 
 	 * @author Nadin Janﬂen
 	 */
 	public static void main(String[] args) {

@@ -97,7 +97,7 @@ public class ClientviewController {
 
 	/**
 	 * open the transaction overview
-	 * @param event
+	 * @param event transaction button is pressed
 	 * @author NadinJanﬂen
 	 */
 	@FXML
@@ -120,7 +120,7 @@ public class ClientviewController {
 	
 	/**
 	 * Call up the refresh function when pressing the refresh button
-	 * @param event
+	 * @param event refresh button is pressed
 	 * @author NadinJanﬂen
 	 */
 	@FXML

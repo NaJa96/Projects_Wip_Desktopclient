@@ -69,7 +69,7 @@ public class TransactionController {
 	/**
 	 * return to clientview
 	 * 
-	 * @param event
+	 * @param event cancel button is pressed
 	 * @author Nadin Janﬂen
 	 */
 	@FXML
@@ -93,7 +93,7 @@ public class TransactionController {
 	/**
 	 * carry out the transaction
 	 * 
-	 * @param event
+	 * @param event transaction button is pressed
 	 * @author Nadin Janﬂen
 	 */
 	@FXML
